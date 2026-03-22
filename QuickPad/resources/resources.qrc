@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <!-- Icons are loaded from system theme at runtime (QIcon::fromTheme).
+             This file is kept as a placeholder; add custom .png icons here
+             if you want to bundle them with the application:
+
+        <file alias="icons/new.png">icons/new.png</file>
+        <file alias="icons/open.png">icons/open.png</file>
+        <file alias="icons/save.png">icons/save.png</file>
+        <file alias="icons/saveas.png">icons/saveas.png</file>
+        <file alias="icons/exit.png">icons/exit.png</file>
+        <file alias="icons/cut.png">icons/cut.png</file>
+        <file alias="icons/copy.png">icons/copy.png</file>
+        <file alias="icons/paste.png">icons/paste.png</file>
+        <file alias="icons/undo.png">icons/undo.png</file>
+        <file alias="icons/redo.png">icons/redo.png</file>
+        -->
+    </qresource>
+</RCC>
