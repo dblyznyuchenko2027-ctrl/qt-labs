@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>780</width><height>540</height></rect>
+  </property>
+  <property name="windowTitle"><string>Helpdesk</string></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+
+    <!-- Filter bar -->
+    <item>
+     <layout class="QHBoxLayout" name="filterLayout">
+      <item>
+       <widget class="QLabel" name="labelStatus">
+        <property name="text"><string>Status:</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboStatus">
+        <item><property name="text"><string>All</string></property></item>
+        <item><property name="text"><string>Open</string></property></item>
+        <item><property name="text"><string>In Progress</string></property></item>
+        <item><property name="text"><string>Resolved</string></property></item>
+        <item><property name="text"><string>Closed</string></property></item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelPriority">
+        <property name="text"><string>Priority:</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboPriority">
+        <item><property name="text"><string>All</string></property></item>
+        <item><property name="text"><string>Low</string></property></item>
+        <item><property name="text"><string>Medium</string></property></item>
+        <item><property name="text"><string>High</string></property></item>
+        <item><property name="text"><string>Critical</string></property></item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="searchEdit">
+        <property name="placeholderText"><string>Search...</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnClearFilters">
+        <property name="text"><string>Clear</string></property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Table + empty label stacked -->
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <!-- page 0: table -->
+      <widget class="QWidget" name="pageTable">
+       <layout class="QVBoxLayout" name="tablePageLayout">
+        <property name="margin"><number>0</number></property>
+        <item>
+         <widget class="QTableView" name="tableView">
+          <property name="selectionBehavior"><enum>QAbstractItemView::SelectRows</enum></property>
+          <property name="selectionMode"><enum>QAbstractItemView::SingleSelection</enum></property>
+          <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
+          <property name="alternatingRowColors"><bool>true</bool></property>
+          <property name="sortingEnabled"><bool>true</bool></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- page 1: empty state -->
+      <widget class="QWidget" name="pageEmpty">
+       <layout class="QVBoxLayout" name="emptyPageLayout">
+        <item>
+         <spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelEmpty">
+          <property name="text"><string>No tickets found.</string></property>
+          <property name="alignment"><set>Qt::AlignHCenter|Qt::AlignVCenter</set></property>
+          <property name="styleSheet"><string>color: gray; font-size: 14px;</string></property>
+         </widget>
+        </item>
+        <item>
+         <spacer><property name="orientation"><enum>Qt::Vertical</enum></property></spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry"><rect><x>0</x><y>0</y><width>780</width><height>26</height></rect></property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title"><string>File</string></property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuTicket">
+    <property name="title"><string>Ticket</string></property>
+    <addaction name="actionNew"/>
+    <addaction name="actionView"/>
+    <addaction name="actionEdit"/>
+    <addaction name="separator"/>
+    <addaction name="actionDelete"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title"><string>View</string></property>
+    <addaction name="actionRefresh"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title"><string>Help</string></property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuTicket"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle"><string>Toolbar</string></property>
+   <attribute name="toolBarArea"><enum>TopToolBarArea</enum></attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionView"/>
+   <addaction name="actionEdit"/>
+   <addaction name="actionDelete"/>
+   <addaction name="actionRefresh"/>
+  </widget>
+
+  <widget class="QStatusBar" name="statusbar"/>
+
+  <action name="actionNew"><property name="text"><string>New</string></property></action>
+  <action name="actionView"><property name="text"><string>View</string></property></action>
+  <action name="actionEdit"><property name="text"><string>Edit</string></property></action>
+  <action name="actionDelete"><property name="text"><string>Delete</string></property></action>
+  <action name="actionRefresh"><property name="text"><string>Refresh</string></property></action>
+  <action name="actionExit"><property name="text"><string>Exit</string></property></action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
