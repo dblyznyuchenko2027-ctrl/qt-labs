@@ -16,6 +16,8 @@ add_executable(Converter
     mainwindow.h
     mainwindow.cpp
     mainwindow.ui
+    converter.h
+    converter.cpp
 )
 
 target_link_libraries(Converter PRIVATE Qt6::Widgets)

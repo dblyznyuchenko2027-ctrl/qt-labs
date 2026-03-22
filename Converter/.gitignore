@@ -3,21 +3,20 @@ build*/
 cmake-build-*/
 out/
 
-# Qt Creator project files
+# Qt Creator
 *.pro.user
-*.pro.user.*
 CMakeLists.txt.user*
 .qtc_clangd/
 .clangd/
 
-# CMake generated files
+# CMake
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
 install_manifest.txt
 
-# Compiled binaries
+# Binaries
 *.exe
 *.out
 *.app
@@ -29,12 +28,9 @@ install_manifest.txt
 *.so
 *.dylib
 
-# OS files
+# OS / IDE
 .DS_Store
 Thumbs.db
-desktop.ini
-
-# IDE files
 .vscode/
 .idea/
 *.swp

@@ -3,75 +3,47 @@
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>420</width>
-    <height>260</height>
-   </rect>
+   <rect><x>0</x><y>0</y><width>440</width><height>270</height></rect>
   </property>
   <property name="minimumSize">
-   <size>
-    <width>360</width>
-    <height>220</height>
-   </size>
+   <size><width>360</width><height>230</height></size>
   </property>
-  <property name="windowTitle">
-   <string>Converter</string>
-  </property>
+  <property name="windowTitle"><string>Converter</string></property>
+
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="centralLayout">
     <property name="contentsMargins">
-     <number>8</number>
-     <number>8</number>
-     <number>8</number>
-     <number>8</number>
+     <number>8</number><number>8</number><number>8</number><number>8</number>
     </property>
+
     <item>
      <widget class="QTabWidget" name="tabWidget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
+      <property name="currentIndex"><number>0</number></property>
 
-      <!-- ===== LENGTH TAB ===== -->
+      <!-- ===== LENGTH ===== -->
       <widget class="QWidget" name="tabLength">
-       <attribute name="title">
-        <string>Length</string>
-       </attribute>
+       <attribute name="title"><string>Length</string></attribute>
        <layout class="QVBoxLayout" name="lengthLayout">
         <property name="contentsMargins">
-         <number>12</number>
-         <number>12</number>
-         <number>12</number>
-         <number>12</number>
+         <number>12</number><number>14</number><number>12</number><number>14</number>
         </property>
-        <property name="spacing">
-         <number>10</number>
-        </property>
-        <!-- Top row -->
+        <property name="spacing"><number>12</number></property>
         <item>
          <layout class="QHBoxLayout" name="lengthTopRow">
-          <property name="spacing">
-           <number>8</number>
-          </property>
+          <property name="spacing"><number>8</number></property>
           <item>
            <widget class="QLineEdit" name="lengthEditTop">
-            <property name="placeholderText">
-             <string>Enter value...</string>
-            </property>
+            <property name="placeholderText"><string>Enter value…</string></property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>1</horstretch>
-              <verstretch>0</verstretch>
+              <horstretch>1</horstretch><verstretch>0</verstretch>
              </sizepolicy>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QComboBox" name="lengthComboTopUnit">
-            <property name="minimumWidth">
-             <number>140</number>
-            </property>
+            <property name="minimumWidth"><number>150</number></property>
             <item><property name="text"><string>meters (m)</string></property></item>
             <item><property name="text"><string>kilometers (km)</string></property></item>
             <item><property name="text"><string>inches (in)</string></property></item>
@@ -81,53 +53,28 @@
           </item>
          </layout>
         </item>
-        <!-- Bottom row -->
         <item>
          <layout class="QHBoxLayout" name="lengthBottomRow">
-          <property name="spacing">
-           <number>8</number>
-          </property>
+          <property name="spacing"><number>8</number></property>
           <item>
            <widget class="QLineEdit" name="lengthEditBottom">
-            <property name="placeholderText">
-             <string>Result...</string>
-            </property>
+            <property name="placeholderText"><string>Result…</string></property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>1</horstretch>
-              <verstretch>0</verstretch>
+              <horstretch>1</horstretch><verstretch>0</verstretch>
              </sizepolicy>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QComboBox" name="lengthComboBottomUnit">
-            <property name="minimumWidth">
-             <number>140</number>
-            </property>
+            <property name="minimumWidth"><number>150</number></property>
             <item><property name="text"><string>kilometers (km)</string></property></item>
             <item><property name="text"><string>meters (m)</string></property></item>
             <item><property name="text"><string>inches (in)</string></property></item>
             <item><property name="text"><string>feet (ft)</string></property></item>
             <item><property name="text"><string>miles (mi)</string></property></item>
            </widget>
-          </item>
-         </layout>
-        </item>
-        <!-- Convert button -->
-        <item>
-         <layout class="QHBoxLayout">
-          <item>
-           <spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="lengthBtnConvert">
-            <property name="text"><string>Convert</string></property>
-            <property name="minimumWidth"><number>100</number></property>
-           </widget>
-          </item>
-          <item>
-           <spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer>
           </item>
          </layout>
         </item>
@@ -140,27 +87,20 @@
        </layout>
       </widget>
 
-      <!-- ===== MASS TAB ===== -->
+      <!-- ===== MASS ===== -->
       <widget class="QWidget" name="tabMass">
-       <attribute name="title">
-        <string>Mass</string>
-       </attribute>
+       <attribute name="title"><string>Mass</string></attribute>
        <layout class="QVBoxLayout" name="massLayout">
         <property name="contentsMargins">
-         <number>12</number>
-         <number>12</number>
-         <number>12</number>
-         <number>12</number>
+         <number>12</number><number>14</number><number>12</number><number>14</number>
         </property>
-        <property name="spacing">
-         <number>10</number>
-        </property>
+        <property name="spacing"><number>12</number></property>
         <item>
          <layout class="QHBoxLayout" name="massTopRow">
           <property name="spacing"><number>8</number></property>
           <item>
            <widget class="QLineEdit" name="massEditTop">
-            <property name="placeholderText"><string>Enter value...</string></property>
+            <property name="placeholderText"><string>Enter value…</string></property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>1</horstretch><verstretch>0</verstretch>
@@ -170,7 +110,7 @@
           </item>
           <item>
            <widget class="QComboBox" name="massComboTopUnit">
-            <property name="minimumWidth"><number>140</number></property>
+            <property name="minimumWidth"><number>150</number></property>
             <item><property name="text"><string>kilograms (kg)</string></property></item>
             <item><property name="text"><string>pounds (lb)</string></property></item>
             <item><property name="text"><string>ounces (oz)</string></property></item>
@@ -183,7 +123,7 @@
           <property name="spacing"><number>8</number></property>
           <item>
            <widget class="QLineEdit" name="massEditBottom">
-            <property name="placeholderText"><string>Result...</string></property>
+            <property name="placeholderText"><string>Result…</string></property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>1</horstretch><verstretch>0</verstretch>
@@ -193,24 +133,12 @@
           </item>
           <item>
            <widget class="QComboBox" name="massComboBottomUnit">
-            <property name="minimumWidth"><number>140</number></property>
+            <property name="minimumWidth"><number>150</number></property>
             <item><property name="text"><string>pounds (lb)</string></property></item>
             <item><property name="text"><string>kilograms (kg)</string></property></item>
             <item><property name="text"><string>ounces (oz)</string></property></item>
            </widget>
           </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout">
-          <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
-          <item>
-           <widget class="QPushButton" name="massBtnConvert">
-            <property name="text"><string>Convert</string></property>
-            <property name="minimumWidth"><number>100</number></property>
-           </widget>
-          </item>
-          <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
          </layout>
         </item>
         <item>
@@ -222,27 +150,20 @@
        </layout>
       </widget>
 
-      <!-- ===== TEMPERATURE TAB ===== -->
+      <!-- ===== TEMPERATURE ===== -->
       <widget class="QWidget" name="tabTemperature">
-       <attribute name="title">
-        <string>Temperature</string>
-       </attribute>
+       <attribute name="title"><string>Temperature</string></attribute>
        <layout class="QVBoxLayout" name="tempLayout">
         <property name="contentsMargins">
-         <number>12</number>
-         <number>12</number>
-         <number>12</number>
-         <number>12</number>
+         <number>12</number><number>14</number><number>12</number><number>14</number>
         </property>
-        <property name="spacing">
-         <number>10</number>
-        </property>
+        <property name="spacing"><number>12</number></property>
         <item>
          <layout class="QHBoxLayout" name="tempTopRow">
           <property name="spacing"><number>8</number></property>
           <item>
            <widget class="QLineEdit" name="tempEditTop">
-            <property name="placeholderText"><string>Enter value...</string></property>
+            <property name="placeholderText"><string>Enter value…</string></property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>1</horstretch><verstretch>0</verstretch>
@@ -252,7 +173,7 @@
           </item>
           <item>
            <widget class="QComboBox" name="tempComboTopUnit">
-            <property name="minimumWidth"><number>140</number></property>
+            <property name="minimumWidth"><number>150</number></property>
             <item><property name="text"><string>Celsius (°C)</string></property></item>
             <item><property name="text"><string>Fahrenheit (°F)</string></property></item>
             <item><property name="text"><string>Kelvin (K)</string></property></item>
@@ -265,7 +186,7 @@
           <property name="spacing"><number>8</number></property>
           <item>
            <widget class="QLineEdit" name="tempEditBottom">
-            <property name="placeholderText"><string>Result...</string></property>
+            <property name="placeholderText"><string>Result…</string></property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>1</horstretch><verstretch>0</verstretch>
@@ -275,24 +196,12 @@
           </item>
           <item>
            <widget class="QComboBox" name="tempComboBottomUnit">
-            <property name="minimumWidth"><number>140</number></property>
+            <property name="minimumWidth"><number>150</number></property>
             <item><property name="text"><string>Fahrenheit (°F)</string></property></item>
             <item><property name="text"><string>Celsius (°C)</string></property></item>
             <item><property name="text"><string>Kelvin (K)</string></property></item>
            </widget>
           </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout">
-          <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
-          <item>
-           <widget class="QPushButton" name="tempBtnConvert">
-            <property name="text"><string>Convert</string></property>
-            <property name="minimumWidth"><number>100</number></property>
-           </widget>
-          </item>
-          <item><spacer><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
          </layout>
         </item>
         <item>
