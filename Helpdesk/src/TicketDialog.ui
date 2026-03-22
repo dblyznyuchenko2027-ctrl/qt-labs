@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TicketDialog</class>
+ <widget class="QDialog" name="TicketDialog">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>480</width><height>460</height></rect>
+  </property>
+  <property name="windowTitle"><string>Ticket</string></property>
+  <layout class="QVBoxLayout" name="dlgMainLayout">
+   <property name="margin"><number>16</number></property>
+   <property name="spacing"><number>10</number></property>
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <property name="fieldGrowthPolicy"><enum>QFormLayout::ExpandingFieldsGrow</enum></property>
+     <property name="horizontalSpacing"><number>12</number></property>
+     <property name="verticalSpacing"><number>8</number></property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="lblIdCaption"><property name="text"><string>ID:</string></property></widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="lblIdValue"><property name="text"><string>-</string></property></widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lblTitleCaption"><property name="text"><string>Title:</string></property></widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="editTitle">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy>
+       </property>
+       <property name="placeholderText"><string>Short summary of the issue</string></property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="lblPriorityCaption"><property name="text"><string>Priority:</string></property></widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="comboPriority">
+       <item><property name="text"><string>Low</string></property></item>
+       <item><property name="text"><string>Medium</string></property></item>
+       <item><property name="text"><string>High</string></property></item>
+       <item><property name="text"><string>Critical</string></property></item>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lblStatusCaption"><property name="text"><string>Status:</string></property></widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="comboStatus">
+       <item><property name="text"><string>Open</string></property></item>
+       <item><property name="text"><string>In Progress</string></property></item>
+       <item><property name="text"><string>Resolved</string></property></item>
+       <item><property name="text"><string>Closed</string></property></item>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lblCreatedCaption"><property name="text"><string>Created:</string></property></widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="lblCreatedValue"><property name="text"><string>-</string></property></widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="lblDescCaption">
+       <property name="text"><string>Description:</string></property>
+       <property name="alignment"><set>Qt::AlignTop|Qt::AlignLeft</set></property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QPlainTextEdit" name="editDescription">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding"><horstretch>1</horstretch><verstretch>1</verstretch></sizepolicy>
+       </property>
+       <property name="placeholderText"><string>Detailed description of the issue</string></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="btnLayout">
+     <item>
+      <spacer><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnEdit">
+       <property name="text"><string>Edit</string></property>
+       <property name="minimumWidth"><number>80</number></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose">
+       <property name="text"><string>Close</string></property>
+       <property name="minimumWidth"><number>80</number></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSave">
+       <property name="text"><string>Save</string></property>
+       <property name="minimumWidth"><number>80</number></property>
+       <property name="visible"><bool>false</bool></property>
+       <property name="default"><bool>true</bool></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancel">
+       <property name="text"><string>Cancel</string></property>
+       <property name="minimumWidth"><number>80</number></property>
+       <property name="visible"><bool>false</bool></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
