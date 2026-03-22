@@ -1,0 +1,8 @@
+def greet(name):
+    return "Hello, " + name + "!"
+
+for i in range(10):
+    print(greet("World"))
+
+result = sum([x * x for x in range(5)])
+print("Sum of squares:", result)
