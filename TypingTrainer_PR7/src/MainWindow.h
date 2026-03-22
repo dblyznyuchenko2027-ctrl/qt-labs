@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include "TextModel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,9 +28,17 @@ private slots:
     // Lesson selection
     void onLessonChanged(int index);
 
+    // PR7: test step button
+    void onStepChar();
+
 private:
     void setupConnections();
-    void updateLessonDescription(int index);
+
+    // Model helpers
+    void loadLesson(int index);       // load text from built-in data into m_model
+    void updateTrainingDisplay();     // refresh Training UI from m_model
 
     Ui::MainWindow *ui;
+
+    TextModel m_model;
 };

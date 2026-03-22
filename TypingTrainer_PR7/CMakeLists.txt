@@ -12,10 +12,12 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 set(SOURCES
     src/main.cpp
     src/MainWindow.cpp
+    src/TextModel.cpp
 )
 
 set(HEADERS
     src/MainWindow.h
+    src/TextModel.h
 )
 
 set(UI_FILES
