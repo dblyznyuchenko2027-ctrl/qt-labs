@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>860</width><height>560</height></rect></property>
+  <property name="windowTitle"><string>Helpdesk</string></property>
+
+  <!-- ── Central widget ── -->
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="centralLayout">
+    <property name="margin"><number>6</number></property>
+    <property name="spacing"><number>4</number></property>
+
+    <!-- Filter bar -->
+    <item>
+     <layout class="QHBoxLayout" name="filterLayout">
+      <property name="spacing"><number>6</number></property>
+      <item>
+       <widget class="QLabel" name="lblStatusFilter"><property name="text"><string>Status:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboStatusFilter">
+        <item><property name="text"><string>All</string></property></item>
+        <item><property name="text"><string>Open</string></property></item>
+        <item><property name="text"><string>In Progress</string></property></item>
+        <item><property name="text"><string>Resolved</string></property></item>
+        <item><property name="text"><string>Closed</string></property></item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblPriorityFilter"><property name="text"><string>Priority:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboPriorityFilter">
+        <item><property name="text"><string>All</string></property></item>
+        <item><property name="text"><string>Low</string></property></item>
+        <item><property name="text"><string>Medium</string></property></item>
+        <item><property name="text"><string>High</string></property></item>
+        <item><property name="text"><string>Critical</string></property></item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="editSearch">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed"><horstretch>1</horstretch><verstretch>0</verstretch></sizepolicy>
+        </property>
+        <property name="placeholderText"><string>Search...</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnClearFilter">
+        <property name="text"><string>Clear</string></property>
+        <property name="maximumWidth"><number>60</number></property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Table -->
+    <item>
+     <widget class="QTableView" name="tableTickets">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding"><horstretch>0</horstretch><verstretch>1</verstretch></sizepolicy>
+      </property>
+      <property name="selectionBehavior"><enum>QAbstractItemView::SelectRows</enum></property>
+      <property name="selectionMode"><enum>QAbstractItemView::SingleSelection</enum></property>
+      <property name="alternatingRowColors"><bool>true</bool></property>
+      <property name="sortingEnabled"><bool>true</bool></property>
+      <property name="editTriggers"><set>QAbstractItemView::NoEditTriggers</set></property>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+
+  <!-- ── Menu bar ── -->
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry"><rect><x>0</x><y>0</y><width>860</width><height>22</height></rect></property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title"><string>&amp;File</string></property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuTicket">
+    <property name="title"><string>&amp;Ticket</string></property>
+    <addaction name="actionNew"/>
+    <addaction name="actionView"/>
+    <addaction name="actionEdit"/>
+    <addaction name="separator0"/>
+    <addaction name="actionDelete"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title"><string>&amp;View</string></property>
+    <addaction name="actionRefresh"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title"><string>&amp;Help</string></property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuTicket"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+
+  <!-- ── Status bar ── -->
+  <widget class="QStatusBar" name="statusBar"/>
+
+  <!-- ── Actions ── -->
+  <action name="actionNew">
+   <property name="text"><string>&amp;New</string></property>
+   <property name="toolTip"><string>Create a new ticket</string></property>
+   <property name="shortcut"><string>Ctrl+N</string></property>
+  </action>
+  <action name="actionView">
+   <property name="text"><string>&amp;View</string></property>
+   <property name="toolTip"><string>View selected ticket</string></property>
+   <property name="shortcut"><string>Ctrl+Return</string></property>
+   <property name="enabled"><bool>false</bool></property>
+  </action>
+  <action name="actionEdit">
+   <property name="text"><string>&amp;Edit</string></property>
+   <property name="toolTip"><string>Edit selected ticket</string></property>
+   <property name="shortcut"><string>Ctrl+E</string></property>
+   <property name="enabled"><bool>false</bool></property>
+  </action>
+  <action name="actionDelete">
+   <property name="text"><string>&amp;Delete</string></property>
+   <property name="toolTip"><string>Delete selected ticket</string></property>
+   <property name="shortcut"><string>Delete</string></property>
+   <property name="enabled"><bool>false</bool></property>
+  </action>
+  <action name="actionRefresh">
+   <property name="text"><string>&amp;Refresh</string></property>
+   <property name="toolTip"><string>Refresh list</string></property>
+   <property name="shortcut"><string>F5</string></property>
+  </action>
+  <action name="actionExit">
+   <property name="text"><string>E&amp;xit</string></property>
+   <property name="shortcut"><string>Ctrl+Q</string></property>
+  </action>
+  <action name="actionAbout">
+   <property name="text"><string>&amp;About Helpdesk</string></property>
+  </action>
+  <action name="separator0">
+   <property name="separator"><bool>true</bool></property>
+  </action>
+
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
