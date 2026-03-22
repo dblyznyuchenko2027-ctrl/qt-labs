@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TypingTrainer</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="centralLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QStackedWidget" name="stackScreens">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- PAGE 0 — START / SELECT TEXT               -->
+      <!-- ═══════════════════════════════════════════ -->
+      <widget class="QWidget" name="pageStart">
+       <layout class="QVBoxLayout" name="startLayout">
+        <property name="margin">
+         <number>24</number>
+        </property>
+        <property name="spacing">
+         <number>16</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblSelectPrompt">
+          <property name="text">
+           <string>Select a text for the typing exercise:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboLesson">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <item>
+           <property name="text">
+            <string>Starter Text</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Numbers and Symbols</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Common Words Part 1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Common Words Part 2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Python Code Sample</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Lorem Ipsum</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="grpLessonInfo">
+          <property name="title">
+           <string>Lesson description</string>
+          </property>
+          <layout class="QVBoxLayout" name="lessonInfoLayout">
+           <item>
+            <widget class="QLabel" name="lblLessonDesc">
+             <property name="text">
+              <string>Home row keys: asdfjkl; — the foundation of touch typing.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignTop|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="startSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <!-- ── Reload + Random row ── -->
+        <item>
+         <layout class="QHBoxLayout" name="reloadRandomLayout">
+          <item>
+           <widget class="QPushButton" name="btnReloadLessons">
+            <property name="text"><string>↺ Reload Lessons</string></property>
+            <property name="toolTip"><string>Rescan the lessons/ folder</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRandomLesson">
+            <property name="text"><string>🎲 Random Lesson</string></property>
+            <property name="toolTip"><string>Pick a random lesson</string></property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <!-- ── Start button ── -->
+        <item>
+         <layout class="QHBoxLayout" name="startBtnLayout">
+          <item>
+           <spacer name="startBtnLeftSpacer">
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnStartTraining">
+            <property name="text"><string>Start Training</string></property>
+            <property name="minimumWidth"><number>160</number></property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="startBtnRightSpacer">
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- PAGE 1 — TRAINING SESSION                  -->
+      <!-- ═══════════════════════════════════════════ -->
+      <widget class="QWidget" name="pageTraining">
+       <layout class="QVBoxLayout" name="trainingLayout">
+        <property name="margin">
+         <number>12</number>
+        </property>
+        <property name="spacing">
+         <number>8</number>
+        </property>
+
+        <!-- ── Session info bar ── -->
+        <item>
+         <widget class="QFrame" name="frameSessionInfo">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="sessionInfoLayout">
+           <property name="margin">
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="lblTimeCaption">
+             <property name="text">
+              <string>⏱ Time:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblTimeValue">
+             <property name="text">
+              <string>00:00</string>
+             </property>
+             <property name="minimumWidth">
+              <number>55</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="sep1">
+             <property name="frameShape">
+              <enum>QFrame::VLine</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblSpeedCaption">
+             <property name="text">
+              <string>⌨ Speed:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblSpeedValue">
+             <property name="text">
+              <string>0 CPM</string>
+             </property>
+             <property name="minimumWidth">
+              <number>70</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="sep2">
+             <property name="frameShape">
+              <enum>QFrame::VLine</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblAccuracyCaption">
+             <property name="text">
+              <string>◎ Accuracy:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblAccuracyValue">
+             <property name="text">
+              <string>100%</string>
+             </property>
+             <property name="minimumWidth">
+              <number>45</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="progressAccuracy">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>100</number>
+             </property>
+             <property name="textVisible">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+
+        <!-- ── Text display area ── -->
+        <item>
+         <widget class="QFrame" name="frameTextDisplay">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch><verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+          <property name="frameShadow"><enum>QFrame::Sunken</enum></property>
+          <layout class="QVBoxLayout" name="textDisplayLayout">
+           <property name="margin"><number>10</number></property>
+           <property name="spacing"><number>6</number></property>
+           <item>
+            <widget class="QLabel" name="lblPreviousLine">
+             <property name="text"><string></string></property>
+             <property name="font"><font><family>Monospace</family><pointsize>14</pointsize></font></property>
+             <property name="styleSheet"><string>color: gray;</string></property>
+             <property name="wordWrap"><bool>true</bool></property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblCurrentLine">
+             <property name="text"><string>jfj j jff ffjjjj fjjf fjjj jjjjjjj</string></property>
+             <property name="font"><font><family>Monospace</family><pointsize>14</pointsize><bold>true</bold></font></property>
+             <property name="wordWrap"><bool>true</bool></property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="textDisplaySpacer">
+             <property name="orientation"><enum>Qt::Vertical</enum></property>
+             <property name="sizeHint" stdset="0"><size><width>20</width><height>10</height></size></property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <!-- ── Virtual keyboard ── -->
+        <item>
+         <widget class="QFrame" name="frameKeyboard">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="keyboardOuterLayout">
+           <property name="margin">
+            <number>6</number>
+           </property>
+           <property name="spacing">
+            <number>4</number>
+           </property>
+
+           <!-- Row 0: number row -->
+           <item>
+            <layout class="QHBoxLayout" name="keyRowNumbers">
+             <property name="spacing">
+              <number>3</number>
+             </property>
+             <item><widget class="QPushButton" name="key_backtick"><property name="text"><string>`</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_1"><property name="text"><string>1</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_2"><property name="text"><string>2</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_3"><property name="text"><string>3</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_4"><property name="text"><string>4</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_5"><property name="text"><string>5</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_6"><property name="text"><string>6</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_7"><property name="text"><string>7</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_8"><property name="text"><string>8</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_9"><property name="text"><string>9</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_0"><property name="text"><string>0</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_minus"><property name="text"><string>-</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_equals"><property name="text"><string>=</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_backspace"><property name="text"><string>←</string></property><property name="minimumWidth"><number>52</number></property><property name="flat"><bool>true</bool></property></widget></item>
+            </layout>
+           </item>
+
+           <!-- Row 1: QWERTY -->
+           <item>
+            <layout class="QHBoxLayout" name="keyRowQwerty">
+             <property name="spacing">
+              <number>3</number>
+             </property>
+             <item><widget class="QPushButton" name="key_tab"><property name="text"><string>Tab</string></property><property name="minimumWidth"><number>52</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_q"><property name="text"><string>Q</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_w"><property name="text"><string>W</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_e"><property name="text"><string>E</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_r"><property name="text"><string>R</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_t"><property name="text"><string>T</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_y"><property name="text"><string>Y</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_u"><property name="text"><string>U</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_i"><property name="text"><string>I</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_o"><property name="text"><string>O</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_p"><property name="text"><string>P</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_lbracket"><property name="text"><string>[</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_rbracket"><property name="text"><string>]</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+            </layout>
+           </item>
+
+           <!-- Row 2: ASDF (home row) -->
+           <item>
+            <layout class="QHBoxLayout" name="keyRowHome">
+             <property name="spacing">
+              <number>3</number>
+             </property>
+             <item><widget class="QPushButton" name="key_caps"><property name="text"><string>Caps</string></property><property name="minimumWidth"><number>62</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_a"><property name="text"><string>A</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_s"><property name="text"><string>S</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_d"><property name="text"><string>D</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_f"><property name="text"><string>F</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_g"><property name="text"><string>G</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_h"><property name="text"><string>H</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_j"><property name="text"><string>J</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_k"><property name="text"><string>K</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_l"><property name="text"><string>L</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_semicolon"><property name="text"><string>;</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_enter"><property name="text"><string>↵</string></property><property name="minimumWidth"><number>62</number></property><property name="flat"><bool>true</bool></property></widget></item>
+            </layout>
+           </item>
+
+           <!-- Row 3: ZXCV -->
+           <item>
+            <layout class="QHBoxLayout" name="keyRowZxcv">
+             <property name="spacing">
+              <number>3</number>
+             </property>
+             <item><widget class="QPushButton" name="key_lshift"><property name="text"><string>⇧</string></property><property name="minimumWidth"><number>46</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_z"><property name="text"><string>Z</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_x"><property name="text"><string>X</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_c"><property name="text"><string>C</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_v"><property name="text"><string>V</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_b"><property name="text"><string>B</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_n"><property name="text"><string>N</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_m"><property name="text"><string>M</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_comma"><property name="text"><string>,</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_period"><property name="text"><string>.</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_slash"><property name="text"><string>/</string></property><property name="maximumWidth"><number>36</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_rshift"><property name="text"><string>⇧</string></property><property name="minimumWidth"><number>46</number></property><property name="flat"><bool>true</bool></property></widget></item>
+            </layout>
+           </item>
+
+           <!-- Row 4: bottom row -->
+           <item>
+            <layout class="QHBoxLayout" name="keyRowBottom">
+             <property name="spacing">
+              <number>3</number>
+             </property>
+             <item><widget class="QPushButton" name="key_lctrl"><property name="text"><string>Shift</string></property><property name="minimumWidth"><number>52</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_lalt"><property name="text"><string>Ctrl</string></property><property name="minimumWidth"><number>46</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item>
+              <widget class="QPushButton" name="key_space">
+               <property name="text">
+                <string>Space</string>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item><widget class="QPushButton" name="key_ralt"><property name="text"><string>Shift</string></property><property name="minimumWidth"><number>52</number></property><property name="flat"><bool>true</bool></property></widget></item>
+             <item><widget class="QPushButton" name="key_rctrl"><property name="text"><string>Ctrl</string></property><property name="minimumWidth"><number>46</number></property><property name="flat"><bool>true</bool></property></widget></item>
+            </layout>
+           </item>
+
+          </layout>
+         </widget>
+        </item>
+
+       </layout>
+      </widget>
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- PAGE 2 — RESULTS                           -->
+      <!-- ═══════════════════════════════════════════ -->
+      <widget class="QWidget" name="pageResults">
+       <layout class="QVBoxLayout" name="resultsLayout">
+        <property name="margin">
+         <number>24</number>
+        </property>
+        <property name="spacing">
+         <number>16</number>
+        </property>
+
+        <item>
+         <widget class="QGroupBox" name="grpSessionResults">
+          <property name="title">
+           <string>Session Results</string>
+          </property>
+          <layout class="QVBoxLayout" name="sessionResultsLayout">
+           <property name="spacing">
+            <number>12</number>
+           </property>
+
+           <!-- Caption row -->
+           <item>
+            <layout class="QHBoxLayout" name="resultsCaptionsLayout">
+             <item>
+              <widget class="QLabel" name="lblTimeCaptionR">
+               <property name="text">
+                <string>⏱ Time</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblSpeedCaptionR">
+               <property name="text">
+                <string>⌨ Speed</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblAccuracyCaptionR">
+               <property name="text">
+                <string>◎ Accuracy</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+
+           <!-- Values row -->
+           <item>
+            <layout class="QHBoxLayout" name="resultsValuesLayout">
+             <item>
+              <widget class="QLabel" name="lblTimeResult">
+               <property name="text">
+                <string>00:00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter</set>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>22</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblSpeedResult">
+               <property name="text">
+                <string>0 CPM</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter</set>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>22</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblAccuracyResult">
+               <property name="text">
+                <string>100%</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter</set>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>22</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+
+          </layout>
+         </widget>
+        </item>
+
+        <item>
+         <spacer name="resultsSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+
+        <!-- Action buttons -->
+        <item>
+         <layout class="QHBoxLayout" name="resultsBtnsLayout">
+          <item>
+           <spacer name="resultsBtnLeftSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRestartTraining">
+            <property name="text">
+             <string>Restart Training</string>
+            </property>
+            <property name="minimumWidth">
+             <number>140</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnReturnToMain">
+            <property name="text">
+             <string>Return to Main</string>
+            </property>
+            <property name="minimumWidth">
+             <number>140</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="resultsBtnRightSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+
+       </layout>
+      </widget>
+
+     </widget>
+    </item>
+   </layout>
+  </widget>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- MENU BAR                                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>820</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>&amp;Settings</string>
+    </property>
+    <addaction name="actionSettings"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
+  </widget>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ACTIONS                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <action name="actionExit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit the application</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About TypingTrainer</string>
+   </property>
+   <property name="statusTip">
+    <string>Show information about TypingTrainer</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>&amp;Preferences…</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
+   </property>
+   <property name="statusTip">
+    <string>Open settings</string>
+   </property>
+  </action>
+
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
