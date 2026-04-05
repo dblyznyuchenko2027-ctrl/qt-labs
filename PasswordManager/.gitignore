@@ -1,0 +1,21 @@
+# Qt / CMake build directories
+build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.pro.user
+*.qbs.user
+
+# Qt Creator IDE files
+*.autosave
+*.orig
+
+# Binary outputs
+PasswordManager
+PasswordManager.exe
+
+# OS
+.DS_Store
+Thumbs.db
