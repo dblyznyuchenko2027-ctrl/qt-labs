@@ -4,6 +4,8 @@
 #include <QList>
 #include "passwordentry.h"
 
+class PasswordRepository;
+
 class PasswordTableModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -20,7 +22,7 @@ public:
         ColCount
     };
 
-    explicit PasswordTableModel(QObject *parent = nullptr);
+    explicit PasswordTableModel(PasswordRepository *repository, QObject *parent = nullptr);
 
     // QAbstractTableModel interface
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -30,14 +32,16 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
-    // Data management
-    void setEntries(const QList<PasswordEntry> &entries);
+    // Bulk reload from repository
+    void reload();
+
+    // Direct access for Delete / Copy
     PasswordEntry entryAt(int row) const;
 
-    // Signal to notify MainWindow that a cell was edited in-place
-signals:
-    void entryEdited(const PasswordEntry &entry);
+    // Collect all categories currently in the list
+    QStringList categories() const;
 
 private:
-    QList<PasswordEntry> m_entries;
+    PasswordRepository   *m_repository;
+    QList<PasswordEntry>  m_entries;
 };

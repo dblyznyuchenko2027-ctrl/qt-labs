@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include "passwordtablemodel.h"
+#include "passwordfilterproxymodel.h"
 #include "databasemanager.h"
 #include "passwordrepository.h"
 
@@ -25,19 +26,26 @@ private slots:
     void onCopyUsernameTriggered();
     void onCopyPasswordTriggered();
     void onSearchTextChanged(const QString &text);
+    void onCategoryFilterChanged(int index);
     void onClearSearch();
     void onSelectionChanged();
-    void onEntryEdited(const PasswordEntry &entry);
 
 private:
-    Ui::MainWindow       *ui;
-    PasswordTableModel   *m_model;
-    DatabaseManager      *m_dbManager;
-    PasswordRepository   *m_repository;
+    Ui::MainWindow            *ui;
+    DatabaseManager           *m_dbManager;
+    PasswordRepository        *m_repository;
+    PasswordTableModel        *m_model;
+    PasswordFilterProxyModel  *m_proxy;
 
     void setupDatabase();
     void setupModel();
+    void setupCategoryCombo();
+
+    // Returns the source-model row for the currently selected proxy row, or -1
+    int currentSourceRow() const;
+
     void reloadData();
     void updateStatusBar();
     void updateActions();
+    void updateEmptyState();
 };

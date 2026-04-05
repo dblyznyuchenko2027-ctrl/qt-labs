@@ -20,6 +20,8 @@ set(PROJECT_SOURCES
     passwordentry.h
     passwordtablemodel.cpp
     passwordtablemodel.h
+    passwordfilterproxymodel.cpp
+    passwordfilterproxymodel.h
     databasemanager.cpp
     databasemanager.h
     passwordrepository.cpp
